@@ -1,5 +1,6 @@
 import FetchData from "@/sanity/FetchData";
 import { urlForImage } from "@/sanity/lib/image";
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function page() {
@@ -10,7 +11,7 @@ export default async function page() {
         <div className="flex gap-5 max-w-6xl m-auto text-black ">
             {data.map((product: any, index: number) => (
                 <Link href={`/product/${product.slug.current}`} className="w-1/4 border border-black p-2" key={index}>
-                    <img src={urlForImage(product.image).url()} alt="images" className="w-full h-60 object-cover object-top" />
+                    <Image src={urlForImage(product.image).url()} alt="images" className="w-full h-60 object-cover object-top" />
                     <h1 className="text-3xl font-bold mt-2">{product.title} </h1>
                     <h1 className="">{product.description} </h1>
                     <h1 className="text-xl font-semibold">{product.category} </h1>
