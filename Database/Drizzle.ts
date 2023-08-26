@@ -27,5 +27,5 @@ export const cartColumns = pgTable("cartdata", {
  
 // ALTER TABLE cartdata
 // ADD CONSTRAINT UNIQUENESS UNIQUE (
-//         product_title, product_color
+//         product_title
 // )
