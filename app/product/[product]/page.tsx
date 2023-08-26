@@ -1,3 +1,4 @@
+import ProductDetails from '@/components/ProductDetails';
 import FetchData from '@/sanity/FetchData';
 import React from 'react'
 
@@ -19,11 +20,7 @@ export default async function page({ params }: { params: any }) {
         return (
         <div>
             <div>
-                raghunathji
-                <h1>Title:{filteredData.title} </h1>
-                <h1>    description:{filteredData.description} </h1>
-                <h1>category:{filteredData.category} </h1>
-                <h1>price   :{filteredData.price} </h1>
+                <ProductDetails filteredData={filteredData} />
             </div>
             </div>
     )
