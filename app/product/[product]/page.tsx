@@ -4,18 +4,19 @@ import React from 'react'
 
 
 export async function generateStaticParams() {
-    const dataa = await FetchData();
-    return dataa.map((item:any) => ({
+    const data = await FetchData();
+    return data.map((item:any) => ({
         product: item.slug.current, 
     }))
 }
 
 export default async function page({ params }: { params: any }) {
-    const dataa = await FetchData();
+    const data = await FetchData();
    
-    const filteredData = dataa.find((item:any) => 
+     const filteredData = data.find((item:any) => 
 
     item.slug.current  == params.product)
+    
     
         return (
         <div>

@@ -9,8 +9,11 @@ export default function ProductDetails({
   filteredData: any;
 }) {
   const { userId } = useAuth();
-  // console.log(userId);
+  console.log(userId);
+
   const [quantity, setQuantity] = useState(1);
+  // console.log(filteredData);
+
 
   // console.log("filteredData", filteredData);
 
@@ -47,10 +50,10 @@ export default function ProductDetails({
             <div className="lg:col-span-6 lg:col-start-7">
               <div className="">
                 <h1 className="text-3xl font-bold text-gray-900">
-                  {filteredData.title}
+                  {filteredData?.title}
                 </h1>
                 <p className="text-2xl font-medium text-gray-900">
-                  Rs {filteredData.price}
+                  Rs {filteredData?.price}
                 </p>
               </div>
             </div>
@@ -59,13 +62,15 @@ export default function ProductDetails({
               <h2 className="sr-only">Images</h2>
 
               <div>
-                <img
-                  key={filteredData._id}
-                  src={urlForImage(filteredData.image).url()}
-                  alt={filteredData.title}
-                  width={300}
-                  height={300}
-                />
+                {filteredData && filteredData.image && (
+                  <img
+                    key={filteredData._id}
+                    src={urlForImage(filteredData.image).url()}
+                    alt={filteredData.title}
+                    width={300}
+                    height={300}
+                  />
+                )}
               </div>
             </div>
 
@@ -103,7 +108,7 @@ export default function ProductDetails({
                 </h2>
 
                 <div className="prose prose-sm mt-4 text-gray-500" />
-                {filteredData.description}
+                {filteredData?.description}
               </div>
             </div>
           </div>
