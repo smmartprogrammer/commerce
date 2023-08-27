@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import Navbar from '@/components/Navbar'
 import Copyrights from '@/components/Copyrights'
+import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function RootLayout({
         
         <Navbar />
           {children}
+          <Footer />
           <Copyrights />
           </body>
       </html>

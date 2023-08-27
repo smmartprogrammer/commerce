@@ -27,21 +27,24 @@ export default function CartItems() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold">Cart</h1>
+      <h1 className="px-40 text-3xl font-black py-8 mt-20">Shopping Cart</h1>
       {isSignedIn ? (
-        <div className="grid gap-14">
+        <div className="grid gap-14 px-40">
           {products?.map((item: any, index: number) => (
             <div className="flex" key={index}>
               <img
                 src={item.image_url}
                 alt=""
-                className="w-56 h-56"
+                className="w-56 h-56 rounded"
                 width={500}
                 height={500}
               />
-              <div className="ml-10">
-                <h1 className="text-4xl font-bold">{item.product_title}</h1>
-                <h1 className="text-2xl font-medium">{item.product_price}</h1>
+              <div className="ml-10 space-y-4">
+                <h1 className="text-base ">{item.product_title}</h1>
+                <h1 className="text-base font-bold">{item.product_description}</h1>
+                <h1 className="text-base font-bold">Delivery Estimate</h1>
+                <h1 className="text-base font-bold">5 Working Days</h1>
+                <h1 className="text-base font-medium">${item.product_price}</h1>
                 <div className="flex border w-fit mt-5">
                   <button className={`px-3 py-1 text-center hover:bg-gray-200`}>
                     -

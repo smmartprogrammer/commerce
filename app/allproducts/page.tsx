@@ -7,15 +7,16 @@ export default async function page() {
     // console.log("data", data[0].slug);
 
     return (
-        <div className="flex gap-5 max-w-6xl m-auto text-black ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-10 md:py-9 md:px-40 rounded ">
+        
             {data.map((product: any, index: number) => (
-                <Link href={`/product/${product.slug.current}`} className="w-1/4 border border-black p-2" key={index}>
-                    <img src={urlForImage(product.image).url()} width={100} height={100}  alt="images" className="w-full h-60 object-cover object-top" />
-                    <h1 className="text-3xl font-bold mt-2">{product.title} </h1>
-                    <h1 className="">{product.description} </h1>
-                    <h1 className="text-xl font-semibold">{product.category} </h1>
-                    <h1 className="text-xl font-semibold">{product.price} </h1>
-
+                <Link href={`/product/${product.slug.current}`}  key={index}>
+                    <div className="space-y-3 mt-10">
+                    <img src={urlForImage(product.image).url()}  alt="images" className="w-80 h-50" />
+                    <h1 className="text-2xl font-bold ">{product.title} </h1>
+                    <h1 className="text-[#888888] text-2xl font-medium   ">{product.description} </h1>
+                    <h1 className="text-2xl font-bold">${product.price} </h1>
+                    </div>
                 </Link>
             ))}
 

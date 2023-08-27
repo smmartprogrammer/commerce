@@ -23,17 +23,17 @@ const Navbar = () => {
 
 
   return (
-    <div className="flex justify-between xs:px-8 xs:py-8 sm:px-16 sm:py-16 md:items-center md:py-9 md:px-24 py-10 lg:px-32 lg:py-10 xl:px-40 xl:py-11  ">
+    <div className="flex justify-between xs:px-8 xs:py-8 sm:px-16 sm:py-16 md:items-center md:py-9 md:px-24 py-10 lg:px-32 lg:py-10  xl:px-40 xl:py-11  ">
       <Link href="/">
-        <div className="w-36 flex shrink-0 ">
-          <Image src={Logo} alt="LOGO" />{" "}
+        <div className="w-fit flex shrink-0 ">
+          <Image src={Logo} alt="LOGO" className="w-fit h-8" />{" "}
         </div>
       </Link>
       <div className="">
-        <ul className="md:flex md:justify-evenly items-center gap-x-7  md:block xs:hidden ">
+        <ul className="md:flex md:justify-evenly xl:justify-evenly items-center gap-x-7  md:block xs:hidden ">
           {NavbarArray.map((items: NavbarItemTypes, index: number) => (
             <div key={index} >
-              <li  className="font-normal text-base ">
+              <li className="font-light text-xl ">
                 <Link href={items.href} > {items.label}</Link>
               </li>
             </div>
@@ -50,25 +50,30 @@ const Navbar = () => {
           />
         </div>
       </div>
-      
+
       <div className="xs:hidden h-11 w-11 relative rounded-full bg-gray-200 md:flex md:justify-center md:items-center sm:hidden md:block   ">
         <span className="h-4 w-4 absolute top-1 right-2 rounded-full bg-red-300 text-sm flex justify-center items-center  font-semibold">
           {/* {cartValue} */}
         </span>
         <ShoppingCart />
-        
+        <ButtonWithIcon />
       </div>
-      <ButtonWithIcon  />
+
       <Sheet>
+      
         <SheetTrigger className="md:hidden    ">
-          <AlignRight className="" />
+          <div className="self-end "><AlignRight  /></div>
+          
         </SheetTrigger>
         <SheetContent className=" w-full ">
+        <div className="flex justify-center mt-16 mb-24"><ButtonWithIcon /></div>
           <div className="flex justify-center py-2 ">
-            <div className="h-10 w-10 relative mt-48  rounded-full bg-gray-200 flex justify-center items-center    ">
+            <div className="h-10 w-10 relative mt-1  rounded-full bg-gray-200 flex justify-center items-center    ">
               <span className="h-4 w-4 absolute top-1 right-2 rounded-full bg-red-300 text-sm flex justify-center items-center font-light">
                 {/* {cartValue} */}
               </span>
+              
+
               <ShoppingCart />
             </div>
           </div>
