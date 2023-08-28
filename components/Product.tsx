@@ -1,6 +1,7 @@
 import FetchData from "@/sanity/FetchData";
 import { urlForImage } from "@/sanity/lib/image";
 import Link from "next/link";
+import Image  from "next/image";
 
 export default async function Product() {
   const data = await FetchData()
@@ -23,7 +24,7 @@ export default async function Product() {
           {productChecks.map((product: any, index: number) => (
             <Link href={`/product/${product.slug.current}`} key={index}>
               <div className="space-y-3 mt-10">
-                <img src={urlForImage(product.image).url()} alt="images" className="w-80 h-50" />
+                <Image width={80} height={80} src={urlForImage(product.image).url()} alt="images" className="w-80 h-50" />
                 <h1 className="text-2xl font-bold ">{product.title} </h1>
                 <h1 className="text-[#888888] text-2xl font-medium   ">{product.description} </h1>
                 <h1 className="text-2xl font-bold">${product.price} </h1>

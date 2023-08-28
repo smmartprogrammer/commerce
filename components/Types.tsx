@@ -8,10 +8,10 @@ export interface NavbarItemTypes {
 }
 
 export interface oneProductType {
-  _id: string;
+  // _id: string;
   quantity:number,
-  _rev: String,
-  _type:string,
+  // _rev: String,
+  // _type:string,
   productName:string,
   _creditAt:string,
   _id:string,

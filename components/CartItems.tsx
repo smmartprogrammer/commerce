@@ -40,8 +40,8 @@ export default function CartItems() {
                 height={500}
               />
               <div className="ml-10 space-y-4">
-                <h1 className="text-base ">{item.product_title}</h1>
-                <h1 className="text-base font-bold">{item.product_description}</h1>
+                <h1 className="text-2xl  ">{item.product_title}</h1>
+                {/* <h1 className="text-base font-bold">{item.product_description}</h1> */}
                 <h1 className="text-base font-bold">Delivery Estimate</h1>
                 <h1 className="text-base font-bold">5 Working Days</h1>
                 <h1 className="text-base font-medium">${item.product_price}</h1>
