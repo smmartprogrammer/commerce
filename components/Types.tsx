@@ -16,11 +16,11 @@ export interface oneProductType {
   _creditAt:string,
   _id:string,
   _updateAt: string,
-  image:Array<imageType,>
+  // image:Array<imageType,>
   name: string;
   title:string;
   price: number;
-  img: image | string | StaticImageData;
+  // img: image | string | StaticImageData;
   category: string;
   gender?: string;
   href?: string;
