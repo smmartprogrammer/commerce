@@ -16,7 +16,6 @@ export default function Home() {
         <Jewellery/>
         <Product />
         <Newsletter/>
-        <ShoppingCart/>
 
         
       </div>

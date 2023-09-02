@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useAuth } from "@clerk/nextjs";
 import { urlForImage } from "@/sanity/lib/image";
+import { ShoppingCart } from "lucide-react";
 
 
 
@@ -54,13 +55,49 @@ export default function ProductDetails({
                 <h1 className="text-3xl font-normal leading-8 text-[#212121]">
                   {filteredData?.title}
                 </h1>
-                <p className="text-2xl font-medium text-gray-900">
+                <p className="text-xl font-semibold text-[#B0B0B0]">
                   {/* Rs {filteredData?.price} */}
                   {filteredData?.description}
                 </p>
-              </div>
-            </div>
+                <p className="mt-14 text-base leading-4 font-bold tracking-widest   ">
+                  {" "}
+                  SELECT SIZE{" "}
+                </p>
+                <div className="mt-5 space-x-4">
+                  <button className=" h-12 w-12 rounded-full text-lg  hover:bg-white hover:border-spacing-5  hover:drop-shadow-2xl font-bold  text-[#666666]">
+                    XS
+                  </button>
+                  <button className=" h-12 w-12 rounded-full text-lg  hover:bg-white hover:border-spacing-5  hover:drop-shadow-2xl font-bold  text-[#666666]">
+                    S
+                  </button>
+                  <button className=" h-12 w-12 rounded-full text-lg  hover:bg-white hover:border-spacing-5  hover:drop-shadow-2xl font-bold  text-[#666666]">
+                    M
+                  </button>
+                  <button className=" h-12 w-12 rounded-full text-lg  hover:bg-white hover:border-spacing-5  hover:drop-shadow-2xl font-bold  text-[#666666]">
+                    L
+                  </button>
+                  <button className=" h-12 w-12 rounded-full text-lg  hover:bg-white hover:border-spacing-5  hover:drop-shadow-2xl font-bold  text-[#666666]">
+                    XL
+                  </button>
+                  <div className="flex mt-10 space-x-6  items-center">
+                    <p className="text-base font-bold tracking-widest">Quantity:</p>
+                    <div className="space-x-4 text-2xl flex justify-center items-center  ">
+                      <button onClick={() => handleDecrement()}
+                        disabled={quantity === 1}
+                        className="h-11 w-11 rounded-full bg-[#F1F1F1]  ">
+                        -
+                      </button>
+                      {quantity}
+                      <button onClick={() => handleIncrement()} className="h-11 w-11 rounded-full  border-2 border-black">
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
 
+              </div>
+
+            </div>
             <div className="mt-8 lg:col-span-6 lg:col-start-1 lg:row-span-3 lg:row-start-1 lg:mt-0">
               <h2 className="sr-only">Images</h2>
 
@@ -70,53 +107,40 @@ export default function ProductDetails({
                     key={filteredData._id}
                     src={urlForImage(filteredData.image).url()}
                     alt={filteredData.title}
-                    width={300}
-                    height={300}
+                    width={600}
+                    height={600}
                   />
                 )}
               </div>
             </div>
-
             <div className="mt-5 lg:col-span-6">
-              <div className="flex border w-fit mt-5">
-                <button
-                  onClick={() => handleDecrement()}
-                  disabled={quantity === 1}
-                  className={`px-3 py-1 text-center hover:bg-gray-200`}
-                >
-                  -
-                </button>
-                <div className="px-3 py-1 text-center">{quantity}</div>
-                <button
-                  onClick={() => handleIncrement()}
-                  className={`px-3 py-1 text-center hover:bg-gray-200`}
-                >
-                  +
-                </button>
-              </div>
-              <div>
-                <button
-                  onClick={handleAddToCart}
-                  className={`w-full overflow-hidden group text-center border border-black py-3 mt-5 text-lg font-bold flex items-center`}
-                >
-                  <p className="flex-grow">Add to Cart</p>
-                </button>
-                <button className="w-full text-center text-white bg-black py-3 text-lg font-bold mt-3">
-                  Buy it now
-                </button>
-              </div>
-              <div className="mt-10">
-                <h2 className="text-sm font-medium text-gray-900">
-                  Description
-                </h2>
 
-                <div className="prose prose-sm mt-4 text-gray-500" />
-                {filteredData?.description}
-              </div>
+              <div className="flex justify-start items-center text-lg font-semibold mt-3">
+
+                <button onClick={handleAddToCart} className=" space-x-2 flex justify-evenly items-center  w-48 text-center text-white bg-black py-2 ">
+              
+              <ShoppingCart className="h-9 w-9" /> 
+               Add to Cart 
+                </button>
+                <div className="font-bold px-2" />
+              $ {filteredData?.price}.00
             </div>
+
+
+              </div>
+
+
+            </div>
+
+
+
+            <div className="mt-10">
+              
+
           </div>
         </div>
       </div>
     </div>
+    // </div>
   );
 }
