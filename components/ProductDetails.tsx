@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useAuth } from "@clerk/nextjs";
 import { urlForImage } from "@/sanity/lib/image";
 
+
+
 export default function ProductDetails({
   filteredData,
 }: {
@@ -49,11 +51,12 @@ export default function ProductDetails({
           <div className="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8">
             <div className="lg:col-span-6 lg:col-start-7">
               <div className="">
-                <h1 className="text-3xl font-bold text-gray-900">
+                <h1 className="text-3xl font-normal leading-8 text-[#212121]">
                   {filteredData?.title}
                 </h1>
                 <p className="text-2xl font-medium text-gray-900">
-                  Rs {filteredData?.price}
+                  {/* Rs {filteredData?.price} */}
+                  {filteredData?.description}
                 </p>
               </div>
             </div>

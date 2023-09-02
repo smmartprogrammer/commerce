@@ -1,6 +1,8 @@
 "use client";
 import { useAuth } from "@clerk/nextjs";
+import { Trash2 } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import { Button } from "./ui/button";
 
 export default function CartItems() {
   const [products, setProducts] = useState<any>(null);
@@ -27,6 +29,7 @@ export default function CartItems() {
 
   return (
     <div>
+      <div className="flex-1  ">
       <h1 className="px-40 text-3xl font-black py-8 mt-20">Shopping Cart</h1>
       {isSignedIn ? (
         <div className="grid gap-14 px-40">
@@ -39,38 +42,67 @@ export default function CartItems() {
                 width={500}
                 height={500}
               />
-              <div className="ml-10 space-y-4">
-                <h1 className="text-2xl  ">{item.product_title}</h1>
-                {/* <h1 className="text-base font-bold">{item.product_description}</h1> */}
-                <h1 className="text-base font-bold">Delivery Estimate</h1>
-                <h1 className="text-base font-bold">5 Working Days</h1>
-                <h1 className="text-base font-medium">${item.product_price}</h1>
-                <div className="flex border w-fit mt-5">
-                  <button className={`px-3 py-1 text-center hover:bg-gray-200`}>
-                    -
-                  </button>
-                  <div className="px-3 py-1 text-center">
-                    {item.product_quantity}
+              <div className="">
+                <div className="ml-10 space-y-4">
+                  <div className="grid grid-cols-2 gap-x-11 place-content-between  items-center">
+                    <h1 className="text-2xl font-light text-[#212121]">{item.product_title}</h1>
+                    <button className="flex justify-end" ><Trash2 onClick={() => deleteProduct(item.product_title)} className="w-8 h-8 pointer " /> </button> 
                   </div>
-                  <button className={`px-3 py-1 text-center hover:bg-gray-200`}>
-                    +
-                  </button>
+                  <h1 className="text-2xl font-light text-[#212121]">{item.product_description}</h1>
+                  <h1 className="text-base font-semibold text-[#666666] ">Delivery Estimation</h1>
+                  <h1 className="text-xl font-semibold text-[#ffc700] ">5 Working Days</h1>
+
+                  <div className="grid grid-cols-2 gap-x-11 place-content-between  items-center">
+                    <h1 className="text-lg font-bold text-[#212121] ">${item.product_price}</h1>
+                    <div className="flex justify-end  ">
+                      <button className={`text-base font-medium px-3 py-1 text-center hover:bg-gray-200 bg-gray-200 rounded-full`}>
+                        -
+                      </button>
+                      <div className="px-3 py-1 text-center  text-base font-normal">
+                        {item.product_quantity}
+                      </div>
+                      <button className=" text-base font-medium rounded-full bg-gray-white border-2 border-zinc-950 px-3 py-1 text-center">
+                        +
+                      </button>
+                    </div>
+
+                  </div>
+                  {/* <button
+                    onClick={() => deleteProduct(item.product_title)}
+                    className="bg-black text-white py-1 px-5 rounded-md mt-10 font-semibold"
+                  >
+                    DELETE
+                  </button> */}
                 </div>
-                <button
-                  onClick={() => deleteProduct(item.product_title)}
-                  className="bg-black text-white py-1 px-5 rounded-md mt-10 font-semibold"
-                >
-                  DELETE
-                </button>
+
+              </div>
+              <div >
+                <div className='flex-1 px-24 '>
+                  <div className='bg-[#FBFCFF] '>
+                    <h1 className='text-xl font-bold text-[#000000] mb-3 '>Order Summary</h1>
+                    <div className='flex py-3'>
+                      <p className='text-xl font-normal '>Quantity</p>
+                      <p className='text-xl font.369*963.3..336699**********************************++-normal '>{ } Product</p>
+                    </div>
+                    <div className='flex py-3'>
+                      <p className='text-xl font-normal '>Sub Total</p>
+                      <p className='text-xl font-normal '>${ } </p>
+                    </div>
+                    <Button className="bg-black text-white font-bold px-6 rounded-none">Proceed to CheckOut</Button>
+
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
+
       ) : (
         <div>
           <h1>Please Login First</h1>
         </div>
       )}
+    </div>
     </div>
   );
 }
