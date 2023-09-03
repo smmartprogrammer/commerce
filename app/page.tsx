@@ -3,7 +3,6 @@ import Jewellery from '@/components/Jewellery'
 import Newsletter from '@/components/Newsletter'
 import Promotion from '@/components/Promotion'
 import Product from '@/components/Product'
-import ShoppingCart from '@/components/ShoppingCart'
 
 
 

@@ -30,7 +30,7 @@ const Navbar = () => {
         </div>
       </Link>
       <div className="">
-        <ul className="md:flex md:justify-evenly xl:justify-evenly items-center gap-x-7  md:block xs:hidden ">
+        <ul className="shrink px-2 md:flex md:justify-evenly xl:justify-evenly items-center gap-x-7  md:block xs:hidden ">
           {NavbarArray.map((items: NavbarItemTypes, index: number) => (
             <div key={index} >
               <li className="font-light text-xl ">
@@ -41,7 +41,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div>
-        <div className="xs:hidden border flex items-center   text-gray-900 px-3 rounded-md sm:hidden md:border md:flex md:items-center md:text-gray-900 md:px-3 md:rounded-md ">
+        <div className="shrink space-x-2 xs:hidden border flex items-center   text-gray-900 px-3 rounded-md sm:hidden md:border md:flex md:items-center md:text-gray-900 md:px-3 md:rounded-md ">
           <Search className="w-4 h-4 pl-0" />
           <input
             type="search"
@@ -51,13 +51,15 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="xs:hidden h-11 w-11 relative rounded-full bg-gray-200 md:flex md:justify-center md:items-center sm:hidden md:block   ">
+      <div className="px-1 xs:hidden h-11 w-11 relative rounded-full bg-gray-200 md:flex md:justify-center md:items-center sm:hidden md:block   ">
         <span className="h-4 w-4 absolute top-1 right-2 rounded-full bg-red-300 text-sm flex justify-center items-center  font-semibold">
           {/* {cartValue} */}
         </span>
         <ShoppingCart />
-        <ButtonWithIcon />
       </div>
+      <div className="px-1">
+        <ButtonWithIcon />
+        </div>
 
       <Sheet>
       

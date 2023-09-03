@@ -5,11 +5,13 @@ import { ClerkProvider } from '@clerk/nextjs'
 import Navbar from '@/components/Navbar'
 import Copyrights from '@/components/Copyrights'
 import Footer from '@/components/Footer'
+import Providers from '@/components/Provider'
+
 const Soraa = Sora({ subsets: ['latin'] })
 
 const sora = Sora({
   weight: ['300', '600', '700'],
-   subsets: ['latin'],
+  subsets: ['latin'],
 
 })
 
@@ -30,12 +32,13 @@ export default function RootLayout({
       <html lang="en">
 
         <body className={sora.className}>
-        
-        <Navbar />
-          {children}
-          <Footer />
-          <Copyrights />
-          </body>
+          <Providers>
+            <Navbar />
+            {children}
+            <Footer />
+            <Copyrights />
+          </Providers>
+        </body>
       </html>
     </ClerkProvider>
   )
