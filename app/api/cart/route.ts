@@ -66,3 +66,23 @@ export const DELETE = async (request: NextRequest) => {
     return NextResponse.json({ message: "Error Deleting Product" });
   }
 };
+
+export const PUT = async (request: NextRequest) => {
+  const req = await request.json();
+  try {
+    const res = await db
+      .update(cartColumns).set({product_quantity: req.product_quantity })
+      .where(
+        and(
+          eq(cartColumns.user_id, req.user_id),
+          eq(cartColumns.product_title, req.product_title)
+        )
+      )
+      .returning();
+      console.log('Quantity updated successfully')
+    return NextResponse.json({ message: "Quantity updated successfully" });
+  } catch (error) {
+    console.log("Error while updating quantity", error);
+    return NextResponse.json({ message: "Error while updating quantity" });
+  }
+};
